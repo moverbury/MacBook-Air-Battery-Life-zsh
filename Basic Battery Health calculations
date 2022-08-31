@@ -1,0 +1,39 @@
+# Symptoms have included "being slow" and "shutting down in the middle of something". The fun begins!
+
+First I updated the MacBook terminal to the new "zsh" with the following command:
+    chsh -s /bin/zsh
+# Nice and easy so far.
+
+Input the following command to check out the various capacities: ioreg -l -wO | grep Capacity
+
+A number of stats will be displayed, the following being relevant to our problem:
+
+  Design Capacity represents 100% (7150 in my case)
+  Max Capacity represents Battery Health (6295 in my case)
+  The simple math is (Max Capacity x 100)/Design Capacity
+  (6295 x 100)/7150 = 88.042% 
+  The delta between Max Capacity and 100% is your Current battery health state (11.958% reduced)
+  
+  Next step is to determine the Battery Cycle Count
+  
+  # I have never used Apple products - so this required some sleuthing and GoogleWork
+  
+  While holding the Option Button down, click on the Apple Icon at the top left of the screen
+  While STILL holding the Option Button down, click on System Information
+  Open up the Hardware Section if not already displayed
+  Scroll down to Power where you'll see Battery Informaiton and System Power Settings displayed
+  
+  In the Battery Information view Cycle Count under the Health Information sub-section.
+  # This one is 522
+  # I was told the MacBook Air has somewhere between 500-800 cycles in its' battery life. 
+  # That said - my other MacBook Air (2015) has 2000 cycles! Although it shuts down arbitrarily and can't 
+  # survive away from the power supply for any length of time and probably should have been upgraded a few cycles ago ;-)
+  
+  Having a quick look into things, I decided it best to roll back from the resource intensive Monteray OS to a previous version that
+  is much lighter and see if things speed up. 
+  
+  # I rolled it back to 10.15.7 which is Catolina. 
+  # The computer now works better than ever. 
+  Go into System Preferences and ensure the OS does NOT get updated. 
+  
+  # Ensure the other options remain enforced to update security features of Catolina as well the various application updates that will keep you safe out there. 
